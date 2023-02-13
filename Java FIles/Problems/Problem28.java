@@ -22,8 +22,6 @@ public class Problem28 {
                 }
             }
         }
-        System.out.println(s);
-        System.out.println(intr);
         HashMap<String,Integer> map=new HashMap<>();
         if(s.size()<=intr.size())
         {
@@ -33,7 +31,11 @@ public class Problem28 {
             }
         }
         System.out.println(map);
-        HashMap<String,Integer> map1=new HashMap<>();
-        
+        //HashMap<String,Integer> map1=new HashMap<>();
+        Collections.sort(s);
+        for(String str:s)
+        {
+            System.out.println("Key="+str+" "+"Value="+map.get(str));
+        }
     }
 }
