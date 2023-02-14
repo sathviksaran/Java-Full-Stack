@@ -31,7 +31,6 @@ public class Problem28 {
             }
         }
         System.out.println(map);
-        //HashMap<String,Integer> map1=new HashMap<>();
         Collections.sort(s);
         for(String str:s)
         {
