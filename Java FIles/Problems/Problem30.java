@@ -2,26 +2,17 @@ import java.util.*;
 public class Problem30 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<Integer> intr=new ArrayList<>();
-        ArrayList<String> s=new ArrayList<>();
         String str[]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+        char ch[]={'0','1','2','3','4','5','6','7','8','9'};
+        HashMap<Character,String> map=new HashMap<>();
+        String s1=sc.next();
         for(int i=0;i<10;i++)
         {
-            s.add(str[i]);
+            map.put(ch[i],str[i]);
         }
-        HashMap<Integer,String> map=new HashMap<>();
-        int n=sc.nextInt();
-        while(n!=0)
+        for(int i=0;i<s1.length();i++)
         {
-            int dig=n%10;
-            n=n/10;
-            intr.add(dig);
+            System.out.print(map.get(s1.charAt(i))+" ");
         }
-        for(Map.Entry<String,Integer> e:map.entrySet())
-        {
-            System.out.println(e.getKey());
-            System.out.println(e.getValue());
-        }
-        System.out.println(map);
     }
 }

@@ -18,6 +18,16 @@ public class Problem32 {
             }
         }
         System.out.println(map);
+        char digits[]={'0','1','2','3','4','5','6','7','8','9'};
+        for(char c:digits)
+        {
+            if(!map.containsKey(c))
+            {
+                System.out.println(c);
+                map.put(c,0);
+            }
+        }
+        System.out.println(map);
         System.out.println((int)(Math.random()*10000));
     }
 }
