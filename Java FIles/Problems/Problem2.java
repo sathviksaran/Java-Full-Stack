@@ -1,3 +1,6 @@
+
+/*Write a program which keep on prompting the user to put an armstrong number until an user puts an armsrong number */
+
 import java.util.*;
 public class Problem2 {
     public static void main(String[] args) {

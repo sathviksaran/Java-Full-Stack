@@ -1,5 +1,9 @@
+
+/*Write a program which terminates until user enters a factorial number, if user enters a factorial number print the number to which the given number is factorial */
+
+
 import java.util.*;
-public class Problem1 {                                                 //Factorial number
+public class Problem1 {                                                 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int i,fact,check=0,n=sc.nextInt();
