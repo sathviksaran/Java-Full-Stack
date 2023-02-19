@@ -1,3 +1,6 @@
+
+/*Array of COnstructorized objects */
+
 public class arrofobj {
     public static void main(String[] args) {
         Shopp[] ref=new Shopp[3];

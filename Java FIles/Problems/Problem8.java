@@ -1,12 +1,14 @@
-import java.util.*;
+
+
+/*Problem 6 using swing */
+
+import javax.swing.JOptionPane;
 public class Problem8 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int check=0;
         while(check!=1)
         {
-            System.out.print("Enter a 12 digit number: ");
-            String s=sc.next();
+            String s=JOptionPane.showInputDialog(null, "Enter a 12 digit number");
             if (s.length()==12)
             {
                 check=1;
@@ -32,8 +34,8 @@ public class Problem8 {
                 {
                     fact*=i;
                 }
-                System.out.println(Math.abs(Math.pow(oddsum,2)-fact)); 
+                JOptionPane.showMessageDialog(null, "Result: "+(Math.abs(Math.pow(oddsum,2)-fact)));
             }
-        }      
+        }
     }
 }

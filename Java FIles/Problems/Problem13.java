@@ -1,20 +1,33 @@
+
+/*Add the elements into the array only if the sum of digits in the number is even and print the array */
+
+
 import java.util.*;
 public class Problem13 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int check=0;
-        while(check!=1)
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        int a1[]=new int[n];
+        for(int i=0;i<n;i++)
         {
-            System.out.print("Enter a palindrome number: ");
-            String s=sc.next();
-            String s1="";
-            for (int i=s.length()-1;i>=0;i--)
+            System.out.print("Enter the element: ");
+            a1[i]=sc.nextInt();
+        }
+        int j=0;
+        for(int i=0;i<n;i++)
+        {
+            int n1=a1[i],sum=0;
+            while(n1!=0)
             {
-                s1+=s.charAt(i);
+                sum+=n1%10;
+                n1/=10;
             }
-            if (s.equals(s1))
+            if(sum%2==0)
             {
-                check=1;
+                a[j]=a1[i];
+                System.out.print(a[j]+" ");
+                j++;
             }
         }
     }

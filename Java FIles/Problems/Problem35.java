@@ -1,71 +1,37 @@
+
+/*Take Strings into an ArrayList until user puts an integer and print ArrayList of hashmaps containing characters and their no.of occurences of each string */
+
+
+
 import java.util.*;
 public class Problem35 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        A obj=new A();
-        ArrayList<Integer> intr=new ArrayList<>();
-        while(sc.hasNextInt())
+        ArrayList<HashMap<Character,Integer>> li=new ArrayList<>();
+        ArrayList<String> s=new ArrayList<>();
+        while(!sc.hasNextInt())
         {
-            intr.add(sc.nextInt());
-            if(intr.size()>3){
-                break;
+            s.add(sc.next());
+        }
+        for(int i=0;i<s.size();i++)
+        {
+            HashMap<Character,Integer> map=new HashMap<>();
+            map.clear();
+            String str=s.get(i);
+            char ch[]=str.toCharArray();
+            for(int j=0;j<ch.length;j++)
+            {
+                if(map.containsKey(ch[j]))
+                {
+                    map.put(ch[j],map.get(ch[j])+1);
+                }
+                else
+                {
+                    map.put(ch[j],1);
+                }
             }
+            li.add(map);
         }
-        if(intr.size()==0)
-        {
-            obj.m1();
-        }
-        else if(intr.size()==1)
-        {
-            obj.m1(intr.get(0));
-        }
-        else if(intr.size()==2)
-        {
-            obj.m1(intr.get(0),intr.get(1));
-        }
-        else if(intr.size()==3)
-        {
-            obj.m1(intr.get(0),intr.get(1),intr.get(2));
-        }
-        else
-        {
-            obj.m1(intr.get(0),intr.get(1),intr.get(2),intr.get(3));
-        }
-    }
-}
-class A{
-    void m1()
-    {
-        System.out.println("No parameters passed");
-    }
-    void m1(int n)
-    {
-        System.out.println(n);
-    }
-    void m1(int m,int n)
-    {
-        int m1=((m/10)*10)+n/10;
-        System.out.println(m1);
-        int n1=((m%10)*10)+n%10;
-        System.out.println(n1);
-        int diff=Math.abs(m1-n1);
-        System.out.println(diff);
-        double fact=1;
-        for(int i=1;i<=diff;i++)
-        {
-            fact*=i;
-        }
-        System.out.println(fact);
-    }
-    void m1(int a,int b,int c)
-    {
-        int a1=((a%10)*10)+a/10;
-        int b1=((b%10)*10)+b/10;
-        int c1=((c%10)*10)+c/10;
-        System.out.println(a1+b1+c1);
-    }
-    void m1(int p,int q,int r,int s)
-    {
-        System.out.println("No more arguments");
+        System.out.println(li);
     }
 }

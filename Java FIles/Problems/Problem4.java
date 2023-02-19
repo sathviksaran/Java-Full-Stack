@@ -1,3 +1,6 @@
+
+/*Take an 8-digit number and print the factorial of digits at odd indices and cuberoot of digits at even indices */
+
 import java.util.*;
 public class Problem4 {
     public static void main(String[] args) {
@@ -16,9 +19,9 @@ public class Problem4 {
             {
                 check=1;
             }
+            int i=1;
             while((n!=0)&&(check==1))
             {
-                int i=1;
                 double dig=n%10;
                 n=n/10;
                 if(i%2==0)

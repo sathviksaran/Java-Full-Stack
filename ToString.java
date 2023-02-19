@@ -1,3 +1,7 @@
+
+
+/*toString() implementation */
+
 public class ToString {
     public static void main(String[] args) {
         toStringjava obj=new toStringjava();

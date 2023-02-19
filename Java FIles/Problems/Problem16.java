@@ -1,29 +1,49 @@
+
+/* Input:
+A
+25 
+14
+8
+B
+Tanuja
+Sathvik
+Srujana
+end
+Output:
+[25, 14, 8]
+[Tanuja, Sathvik, Srujana] */
+
+
+
+
+
 import java.util.*;
 public class Problem16 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> a=new ArrayList<Integer>();
-        while(sc.hasNextInt())
+        ArrayList<String> b=new ArrayList<String>();
+        String s="";
+        while(!s.equalsIgnoreCase("end"))
         {
-            int n=sc.nextInt(),temp,dig=0,count=0;
-            temp=n;
-            while(n!=0)
+            s=sc.next();
+            while((s.equalsIgnoreCase("A")) &&(sc.hasNextInt()))
             {
-                dig=n%10;
-                n=n/10;
-                if(dig==0)
+                a.add(sc.nextInt());
+            }
+            while((s.equalsIgnoreCase("B")) &&(sc.hasNext()))
+            {
+                String s1=sc.next();
+                if(!s1.equalsIgnoreCase("end"))
                 {
-                    count++;
+                    b.add(s1);
                 }
-            }
-            if ((temp%10==0) &&(count<=5) &&(count>2))
-            {
-                a.add(temp);
-            }
-            else{
-                break;
+                else{
+                    s="end";
+                }
             }
         }
         System.out.println(a);
+        System.out.println(b);
     }
 }

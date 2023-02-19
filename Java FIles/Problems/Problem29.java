@@ -1,19 +1,37 @@
+
+
+/*Take 12 digit string as input and print the hashmap containing keys as index of vowels and values are factorial of keys */
+
+
 import java.util.*;
 public class Problem29 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        String s=sc.next();
-        HashMap<Character,Integer> map=new HashMap<>();
-        for(int i=0;i<s.length();i++)
+        String str=sc.next();
+        char vowels[]={'a','e','i','o','u','A','E','I','O','U'};
+        ArrayList<Integer> intr=new ArrayList<>();
+        if(str.length()>12)
         {
-            if(map.containsKey(s.charAt(i)))
+            for(int i=0;i<str.length();i++)
             {
-                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+                for(int j=0;j<10;j++)
+                {
+                    if(str.charAt(i)==vowels[j])
+                    {
+                        intr.add(i);
+                    }
+                }
             }
-            else
+        }
+        HashMap<Integer,Integer> map =new HashMap<>();
+        for(int i=0;i<intr.size();i++)
+        {
+            int fact=1;
+            for(int j=1;j<=intr.get(i);j++)
             {
-                map.put(s.charAt(i),1);
+                fact*=j;
             }
+            map.put(intr.get(i),fact);
         }
         System.out.println(map);
     }

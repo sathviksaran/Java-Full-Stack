@@ -1,31 +1,36 @@
+
+/*Take Strings into an array list until user puts an integer and print the index of vowels in each string */
+
+
 import java.util.*;
 public class Problem22 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        LinkedList <String> ref=new LinkedList<>();
+        ArrayList<String> str=new ArrayList<>();
+        LinkedList<LinkedList<Integer>> intr=new LinkedList<>();
+        char vowels[]={'a','e','i','o','u'};
         while(!sc.hasNextInt())
         {
+            LinkedList<Integer> intr1=new LinkedList<>();
+            intr1.clear();
             if(sc.hasNextInt())
             {
                 break;
             }
-            String str=sc.nextLine(); 
-            str=str.replace('a','#');
-            str=str.replace('e','#');
-            str=str.replace('i','#');
-            str=str.replace('o','#');
-            str=str.replace('u','#');
-            str=str.replace('A','#');
-            str=str.replace('E','#');
-            str=str.replace('I','#');
-            str=str.replace('O','#');
-            str=str.replace('U','#');
-            ref.add(str);
+            String str1=sc.nextLine(); 
+            char ch[]=str1.toCharArray();
+            str.add(str1);
+            for(int i=0;i<ch.length;i++)
+            {
+                for(int j=0;j<5;j++)
+                {
+                    if(ch[i]==vowels[j])
+                        intr1.add(i);
+                }
+            }
+            intr.add(intr1);
         }
-        Object a[]=ref.toArray();
-        for(Object elem:a)
-        {
-            System.out.println(elem+" ");
-        }
+        System.out.println(str);
+        System.out.println(intr);
     }
 }

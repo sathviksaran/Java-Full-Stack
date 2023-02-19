@@ -1,42 +1,21 @@
+
+/*Take integers into an arraylist unti user puts a string and print 2D array list containing the number and its cube */
+
+
 import java.util.*;
 public class Problem19 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<Integer> a=new ArrayList<>();
-        ArrayList<ArrayList <String>> ref=new ArrayList<>();
-        while(!sc.hasNextInt())
+        ArrayList<ArrayList<Integer>> a=new ArrayList<>();
+        while(sc.hasNextInt())
         {
-            ArrayList<String> s=new ArrayList<>();
-            s.clear();
-            if(sc.hasNextInt())
-            {
-                a.add(sc.nextInt());
-                break;
-            }
-            while(s.size()<3)
-            {
-                if(!sc.hasNextInt())
-                {
-                    String str=sc.nextLine();
-                    str=str.replace('a','$');
-                    str=str.replace('e','$');
-                    str=str.replace('i','$');
-                    str=str.replace('o','$');
-                    str=str.replace('u','$');
-                    str=str.replace('A','$');
-                    str=str.replace('E','$');
-                    str=str.replace('I','$');
-                    str=str.replace('O','$');
-                    str=str.replace('U','$');
-                    s.add(str);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            ref.add(s);
+            ArrayList<Integer> b=new ArrayList<>();
+            b.clear();
+            int n=sc.nextInt();
+            b.add(n);
+            b.add(n*n*n);
+            a.add(b);
         }
-        System.out.println(ref);   
+        System.out.println(a);
     }
 }

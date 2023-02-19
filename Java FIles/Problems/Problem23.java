@@ -1,32 +1,23 @@
+
+/*Implementation of hashset and converting removing duplcates from arraylist */
+
+
 import java.util.*;
 public class Problem23 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<String> str=new ArrayList<>();
-        LinkedList<LinkedList<Integer>> intr=new LinkedList<>();
-        char vowels[]={'a','e','i','o','u'};
-        while(!sc.hasNextInt())
+        ArrayList<String> s=new ArrayList<>();
+        ArrayList<Integer> i=new ArrayList<>();
+        while(sc.hasNext())
         {
-            LinkedList<Integer> intr1=new LinkedList<>();
-            intr1.clear();
             if(sc.hasNextInt())
             {
+                i.add(sc.nextInt());
                 break;
             }
-            String str1=sc.nextLine(); 
-            char ch[]=str1.toCharArray();
-            str.add(str1);
-            for(int i=0;i<ch.length;i++)
-            {
-                for(int j=0;j<5;j++)
-                {
-                    if(ch[i]==vowels[j])
-                        intr1.add(i);
-                }
-            }
-            intr.add(intr1);
+            s.add(sc.next());
         }
-        System.out.println(str);
-        System.out.println(intr);
+        HashSet<String> set=new HashSet<>(s);
+        System.out.println(set);
     }
 }

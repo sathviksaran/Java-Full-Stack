@@ -1,17 +1,24 @@
+
+/*Take a string as input and print the occurences of each character in that string */
+
+
 import java.util.*;
 public class Problem27 {
     public static void main(String[] args) {
-        HashMap<String,Integer> map=new HashMap<>();
-        map.put("Java", 234);
-        map.put("Python",34);
-        map.put("C++",67);
-        System.out.println(map);
-        map.put("Python",456);
-        System.out.println(map);
-        for(Map.Entry<String,Integer> e:map.entrySet())
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<s.length();i++)
         {
-            System.out.println(e.getKey());
-            System.out.println(e.getValue());
+            if(map.containsKey(s.charAt(i)))
+            {
+                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }
+            else
+            {
+                map.put(s.charAt(i),1);
+            }
         }
+        System.out.println(map);
     }
 }

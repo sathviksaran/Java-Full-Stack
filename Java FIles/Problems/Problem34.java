@@ -1,43 +1,26 @@
-import java.util.*;public class Problem34 {
+
+
+/*Printing sum of elements of an array at odd indices using function */
+
+
+import java.util.*;
+public class Problem34 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        String s1="";
-        System.out.print("Enter number:");
-        int n=sc.nextInt();
-        System.out.print("Factorial/Binary? ");
-        String s=sc.next();
-        s1=sc.next();
-        if(!s1.equalsIgnoreCase("end")){
-            hello(n,s,s1);
-        }
-        else
+        ArrayList<Integer> intr=new ArrayList<>();
+        while(sc.hasNextInt())
         {
-            if(s.equalsIgnoreCase("factorial"))
-            {
-                fact(n,s);
-            }
-            if(s.equalsIgnoreCase("binary"))
-            {
-                binary(n,s);
-            }
+            intr.add(sc.nextInt());
         }
+        sum(intr);
     }
-    static void fact(int n,String s)
+    static void sum(ArrayList<Integer> intr)
     {
-        int fact=1;
-        for(int i=1;i<=n;i++)
+        int sum=0;
+        for(int i=1;i<intr.size();i+=2)
         {
-            fact*=i;
+            sum+=intr.get(i);
         }
-        System.out.println(fact);
-    }
-    static void binary(int n,String s)
-    { 
-        String bin=Integer.toBinaryString(n);
-        System.out.println(bin);
-    }
-    static void hello(int n,String s,String s1)
-    {
-        System.out.println("Only 2 parameters are allowed");
+        System.out.println(sum);
     }
 }

@@ -1,3 +1,7 @@
+
+/*Write a program which terminates until user enters a perfect cube number */
+
+
 import java.util.*;
 public class While {
     public static void main(String[] args) {

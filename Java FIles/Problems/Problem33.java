@@ -1,51 +1,71 @@
 import java.util.*;
 public class Problem33 {
     public static void main(String[] args) {
-        result(checkdigits());
-    }
-    static int checkdigits()
-    {
-        int check=0;
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int temp=n;
-        while(check==0)
+        A obj=new A();
+        ArrayList<Integer> intr=new ArrayList<>();
+        while(sc.hasNextInt())
         {
-            int nod=0;
-            while(n!=0)
-            {
-                nod++;
-                n/=10;
-            }
-            if(nod==6)
-            {
-                check=1;
+            intr.add(sc.nextInt());
+            if(intr.size()>3){
                 break;
             }
-            n=sc.nextInt();
         }
-        return temp;
+        if(intr.size()==0)
+        {
+            obj.m1();
+        }
+        else if(intr.size()==1)
+        {
+            obj.m1(intr.get(0));
+        }
+        else if(intr.size()==2)
+        {
+            obj.m1(intr.get(0),intr.get(1));
+        }
+        else if(intr.size()==3)
+        {
+            obj.m1(intr.get(0),intr.get(1),intr.get(2));
+        }
+        else
+        {
+            obj.m1(intr.get(0),intr.get(1),intr.get(2),intr.get(3));
+        }
     }
-    int temp1=checkdigits();
-    static void result(int temp1)
+}
+class A{
+    void m1()
     {
-        int ref[]=new int[6];
-        for(int i=5;i>=0;i--)
+        System.out.println("No parameters passed");
+    }
+    void m1(int n)
+    {
+        System.out.println(n);
+    }
+    void m1(int m,int n)
+    {
+        int m1=((m/10)*10)+n/10;
+        System.out.println(m1);
+        int n1=((m%10)*10)+n%10;
+        System.out.println(n1);
+        int diff=Math.abs(m1-n1);
+        System.out.println(diff);
+        double fact=1;
+        for(int i=1;i<=diff;i++)
         {
-            ref[i]=temp1%10;
-            temp1/=10;
+            fact*=i;
         }
-        double cubesum=0,squaresum=0;
-        for(int i=0;i<6;i++)
-        {
-            if(i%2==0)
-            {
-                cubesum+=Math.pow(ref[i],3);
-            }
-            else{
-                squaresum+=Math.pow(ref[i],2);
-            }
-        }
-        System.out.println(cubesum/squaresum);
+        System.out.println(fact);
+    }
+    void m1(int a,int b,int c)
+    {
+        int a1=((a%10)*10)+a/10;
+        int b1=((b%10)*10)+b/10;
+        int c1=((c%10)*10)+c/10;
+        System.out.println(a1+b1+c1);
+    }
+    void m1(int p,int q,int r,int s)
+    {
+        System.out.println("No more arguments");
     }
 }

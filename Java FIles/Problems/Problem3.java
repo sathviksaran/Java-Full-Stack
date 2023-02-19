@@ -1,6 +1,6 @@
 
 
-/* */
+/*Implementation of nested for loop */
 
 
 import java.util.*;

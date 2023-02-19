@@ -1,24 +1,34 @@
+
+/*Take Strings into an linkedlist until user enters an integer and print the strings by replacing vowels with # sign */
+
 import java.util.*;
 public class Problem21 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<List> s=new ArrayList<>();
-        ArrayList<Integer> a=new ArrayList<>();
+        LinkedList <String> ref=new LinkedList<>();
         while(!sc.hasNextInt())
         {
-            String str=new String();
             if(sc.hasNextInt())
             {
-                a.add(sc.nextInt());
                 break;
             }
-            else
-            {
-                str=sc.next();
-            }
-            List str1=Arrays.asList(str);
-            s.add(str1);
+            String str=sc.nextLine(); 
+            str=str.replace('a','#');
+            str=str.replace('e','#');
+            str=str.replace('i','#');
+            str=str.replace('o','#');
+            str=str.replace('u','#');
+            str=str.replace('A','#');
+            str=str.replace('E','#');
+            str=str.replace('I','#');
+            str=str.replace('O','#');
+            str=str.replace('U','#');
+            ref.add(str);
         }
-        System.out.println(s);
+        Object a[]=ref.toArray();
+        for(Object elem:a)
+        {
+            System.out.println(elem+" ");
+        }
     }
 }

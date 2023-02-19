@@ -1,33 +1,48 @@
+
+/*Factorial and binary equivalent of a number using functions */
+
+
 import java.util.*;
 public class Problem32 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        String s1="";
+        System.out.print("Enter number:");
+        int n=sc.nextInt();
+        System.out.print("Factorial/Binary? ");
         String s=sc.next();
-        HashMap<Character,Integer> map = new HashMap<>();
-        if(s.length()==10)
+        s1=sc.next();
+        if(!s1.equalsIgnoreCase("end")){
+            hello(n,s,s1);
+        }
+        else
         {
-            for(int i=0;i<10;i++)
+            if(s.equalsIgnoreCase("factorial"))
             {
-                if(map.containsKey(s.charAt(i)))
-                {
-                    map.put(s.charAt(i),map.get(s.charAt(i))+1);
-                }
-                else{
-                    map.put(s.charAt(i),1);
-                }
+                fact(n,s);
+            }
+            if(s.equalsIgnoreCase("binary"))
+            {
+                binary(n,s);
             }
         }
-        System.out.println(map);
-        char digits[]={'0','1','2','3','4','5','6','7','8','9'};
-        for(char c:digits)
+    }
+    static void fact(int n,String s)
+    {
+        int fact=1;
+        for(int i=1;i<=n;i++)
         {
-            if(!map.containsKey(c))
-            {
-                System.out.println(c);
-                map.put(c,0);
-            }
+            fact*=i;
         }
-        System.out.println(map);
-        System.out.println((int)(Math.random()*10000));
+        System.out.println(fact);
+    }
+    static void binary(int n,String s)
+    { 
+        String bin=Integer.toBinaryString(n);
+        System.out.println(bin);
+    }
+    static void hello(int n,String s,String s1)
+    {
+        System.out.println("Only 2 parameters are allowed");
     }
 }

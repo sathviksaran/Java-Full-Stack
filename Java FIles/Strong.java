@@ -1,3 +1,7 @@
+
+
+/*Write a program which terminates until user enters a strong number */
+
 import java.util.*;
 public class Strong {
     public static void main(String[] args) {

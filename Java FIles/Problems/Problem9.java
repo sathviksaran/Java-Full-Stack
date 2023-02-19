@@ -1,37 +1,34 @@
-import javax.swing.JOptionPane;
+
+/*Take an integer containing no.of digits multiple of 3 */
+/*If n=123456 print 1^2^3+4^5^6 */
+
+import java.util.*;
 public class Problem9 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int check=0;
         while(check!=1)
         {
-            String s=JOptionPane.showInputDialog(null, "Enter a 12 digit number");
-            if (s.length()==12)
+            System.out.print("Enter number containing digits multiple of 3: ");
+            String s=sc.next();
+            if (s.length()%3==0)
             {
                 check=1;
             }
             if (check==1)
             {
-                int oddsum=0,evensum=0;
+                int a[]=new int[s.length()];
                 for(int i=0;i<s.length();i++)
                 {
-                    int n=s.charAt(i)-'0';
-                    //n=Integer.parseInt(s.valueOf(s.charAt(i)));
-                    //n=Character.getNumericValue(s.charAt(i));
-                    if (i%2==0)
-                    {
-                        oddsum+=n;
-                    }
-                    else{
-                        evensum+=n;
-                    }
+                    a[i]=s.charAt(i)-'0';
                 }
-                double fact=1;
-                for(int i=1;i<=evensum;i++)
+                double sum=0;
+                for(int i=0;i<s.length();i+=3)
                 {
-                    fact*=i;
+                    sum+=(Math.pow(a[i],Math.pow(a[i+1],a[i+2])));
                 }
-                JOptionPane.showMessageDialog(null, "Result: "+(Math.abs(Math.pow(oddsum,2)-fact)));
+                System.out.println(sum);
             }
-        }
+        } 
     }
 }

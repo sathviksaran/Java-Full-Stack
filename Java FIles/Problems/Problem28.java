@@ -1,40 +1,26 @@
+
+/*Input:
+128
+Output:
+one two eight*/
+
+
+
 import java.util.*;
 public class Problem28 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<String> s=new ArrayList<>();
-        ArrayList<Integer> intr=new ArrayList<>();
-        while(true)
+        String str[]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+        char ch[]={'0','1','2','3','4','5','6','7','8','9'};
+        HashMap<Character,String> map=new HashMap<>();
+        String s1=sc.next();
+        for(int i=0;i<10;i++)
         {
-            if(sc.hasNextInt())
-            {
-                intr.add(sc.nextInt());
-            }
-            if(sc.hasNext())
-            {
-                String str=sc.next();
-                if(!str.equalsIgnoreCase("Break"))
-                {
-                    s.add(str);
-                }
-                else{
-                    break;
-                }
-            }
+            map.put(ch[i],str[i]);
         }
-        HashMap<String,Integer> map=new HashMap<>();
-        if(s.size()<=intr.size())
+        for(int i=0;i<s1.length();i++)
         {
-            for(int i=0;i<s.size();i++)
-            {
-                map.put(s.get(i),intr.get(i));
-            }
-        }
-        System.out.println(map);
-        Collections.sort(s);
-        for(String str:s)
-        {
-            System.out.println("Key="+str+" "+"Value="+map.get(str));
+            System.out.print(map.get(s1.charAt(i))+" ");
         }
     }
 }

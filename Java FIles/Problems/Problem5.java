@@ -1,3 +1,6 @@
+
+/*Take a 6-digit number and print the cube of digits at odd indices and square root of digits at even indices */
+
 import java.util.*;
 public class Problem5 {
     public static void main(String[] args) {

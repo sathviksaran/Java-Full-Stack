@@ -1,23 +1,28 @@
+
+
+/*Take Integers into the array list until user enters 4 strings and then print arraylist of integers */
+
+
+
 import java.util.*;
 public class Problem14 {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt(),sum=0;
-        int a[]=new int[n];
-        int a1[]=new int[n];
-        for(int i=0;i<n;i++)
+        Scanner sc = new Scanner(System.in);
+        ArrayList <Integer> ref = new ArrayList<Integer>();
+        ArrayList <String> s=new ArrayList<String>();
+        int count=0;
+        while(count<=4)
         {
-            System.out.print("Enter the element: ");
-            
-            sum+=a1[i];
-        }
-        for(int i=0;i<n;i++)
-        {
-            if(sum%2==0)
+            if(sc.hasNextInt())
             {
-                a[i]=a1[i];
+                ref.add(sc.nextInt());
             }
-            System.out.print(a[i]+" ");
+            else
+            {
+                s.add(sc.nextLine());
+                count++;
+            }
         }
+        System.out.println(ref);
     }
 }

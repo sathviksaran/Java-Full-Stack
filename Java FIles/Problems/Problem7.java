@@ -1,3 +1,6 @@
+
+/*Problem 6 using String */
+
 import java.util.*;
 public class Problem7 {
     public static void main(String[] args) {
@@ -6,39 +9,34 @@ public class Problem7 {
         while(check!=1)
         {
             System.out.print("Enter a 12 digit number: ");
-            long n=sc.nextLong(),temp=n,nod=0,evensum=0,oddsum=0;
-            while(n!=0)
-            {
-                nod++;
-                n=n/10;
-            }
-            if (nod==12)
+            String s=sc.next();
+            if (s.length()==12)
             {
                 check=1;
             }
             if (check==1)
             {
-                for(int i=1;i<=nod;i++)
+                int oddsum=0,evensum=0;
+                for(int i=0;i<s.length();i++)
                 {
-                    if (i%2==1)
+                    int n=s.charAt(i)-'0';
+                    //n=Integer.parseInt(s.valueOf(s.charAt(i)));
+                    //n=Character.getNumericValue(s.charAt(i));
+                    if (i%2==0)
                     {
-                        oddsum+=temp/Math.pow(10,nod-i);
-                        temp%=Math.pow(10,nod-i);
+                        oddsum+=n;
                     }
                     else{
-                        evensum+=temp/Math.pow(10,nod-i);
-                        temp%=Math.pow(10,nod-i);
+                        evensum+=n;
                     }
                 }
-                System.out.println(evensum);
-                System.out.println(oddsum);
                 double fact=1;
                 for(int i=1;i<=evensum;i++)
                 {
                     fact*=i;
                 }
-                System.out.println((Math.abs(Math.pow(oddsum,2)-fact)));
+                System.out.println(Math.abs(Math.pow(oddsum,2)-fact)); 
             }
-        }
+        }      
     }
 }

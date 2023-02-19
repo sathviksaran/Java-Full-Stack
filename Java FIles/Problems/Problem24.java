@@ -1,19 +1,17 @@
+
+/*Get the unique characters from the string */
+
 import java.util.*;
 public class Problem24 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ArrayList<String> s=new ArrayList<>();
-        ArrayList<Integer> i=new ArrayList<>();
-        while(sc.hasNext())
+        HashSet<Character> set=new HashSet<>();
+        String s=sc.next();
+        char a[]=s.toCharArray();
+        for(int i=0;i<a.length;i++)
         {
-            if(sc.hasNextInt())
-            {
-                i.add(sc.nextInt());
-                break;
-            }
-            s.add(sc.next());
+            set.add(a[i]);
         }
-        HashSet<String> set=new HashSet<>(s);
         System.out.println(set);
     }
 }
