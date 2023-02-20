@@ -2,72 +2,52 @@ import java.util.*;
 public class MatchesProblem {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.print("Enter no.of teams: ");
-        int n=sc.nextInt();
-        System.out.println("Enter teams: ");
-        ArrayList <String> teams=new ArrayList<>();
-        ArrayList<HashSet<String>> combo=new ArrayList<>();
-        ArrayList<HashSet<String>> combo1=new ArrayList<>();
-        for(int i=0;i<n;i++)
+        ArrayList<String>teams=new ArrayList<>();
+        ArrayList<Object>obj=new ArrayList<>();
+        ArrayList<HashMap<String,String>>hs=new ArrayList<>();
+        teams.add("team1");
+        teams.add("team2");
+        teams.add("team3");
+        teams.add("team4");
+        teams.add("team5");
+        match m1=new match(teams.get(0));
+        match m2=new match(teams.get(1));
+        match m3=new match(teams.get(2));
+        match m4=new match(teams.get(3));
+        match m5=new match(teams.get(4));
+        obj.add(m1);
+        obj.add(m2);
+        obj.add(m3);
+        obj.add(m4);
+        obj.add(m5);
+        new match(obj);
+    }
+}
+    class match
+    {
+        String s;
+        match(String s)
         {
-            teams.add(sc.next());
+            this.s=s;
         }
-        System.out.println(teams);
-        ArrayList<ArrayList<String>> matches=new ArrayList<>();
-        for(int i=0;i<n-1;i++)
+        public String toString()
         {
-            for(int j=i+1;j<n;j++)
-            {
-                ArrayList<String> str=new ArrayList<>();
-                HashSet <String> match=new HashSet<>();
-                str.clear();
-                match.clear();
-                str.add(teams.get(i)+" Vs "+teams.get(j));
-                match.add(teams.get(i));
-                match.add(teams.get(j));
-                matches.add(str);
-                combo.add(match);
-                HashSet<String> match1=new HashSet<>();
-                match1.clear();
-                match1.add(teams.get(i));
-                match1.add(teams.get(j));
-                combo1.add(match1);
-            }
+            return s;
         }
-        System.out.println(matches);
-        System.out.println(combo);
-        ArrayList<HashSet<String>> schedule=new ArrayList<>();
-        while(schedule.size()!=matches.size())
+        match(ArrayList<Object> obj)
         {
-            schedule.add(combo.get(0));
-            for(int i=combo.size()-1;i>=0;i--)
-            {
-                combo1.get(i).retainAll(schedule.get(schedule.size()-1));
-                if((combo1.get(i).isEmpty()) &&(!schedule.contains(combo.get(i))))
+        for(int i=0;i<=obj.size()-1;i++)
+        {
+            for(int j=0;j<obj.size()/2;j++)
+            {   
+                int t1=(i+j)%(obj.size()-1);
+                int t2=(obj.size()-1-j+i)%(obj.size()-1);
+                if(j==0)
                 {
-                    schedule.add(combo.get(i));
-                    combo.remove(combo.get(i));
-                    break;
+                    t2=obj.size()-1;
                 }
-            }
-            combo.remove(combo.get(0));
-            combo1.clear();
-            for(int i=0;i<n-1;i++)
-            {
-                for(int j=i+1;j<n;j++)
-                {
-                    HashSet<String> match1=new HashSet<>();
-                    match1.clear();
-                    match1.add(teams.get(i));
-                    match1.add(teams.get(j));
-                    combo1.add(match1);
-                }
-            }
-            for(int i=0;i<schedule.size();i++)
-            {
-                combo1.remove(schedule.get(i));
+                System.out.println(obj.get(t1)+" vs "+obj.get(t2));
             }
         }
-        System.out.println(schedule);
     }
 }
