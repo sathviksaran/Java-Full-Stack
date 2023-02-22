@@ -2,7 +2,7 @@ import java.util.*;
 public class Problem42 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        class2 obj=new class2();
+        Child1 obj=new Child1();
         ArrayList<Integer> intr=new ArrayList<>();
         while(sc.hasNextInt())
         {
@@ -11,7 +11,7 @@ public class Problem42 {
         obj.result(intr);
     }
 }
-class class1
+class Parent1
 {
     static void result(ArrayList<Integer> intr)
     {
@@ -30,7 +30,7 @@ class class1
         System.out.println(Math.abs(evensum-oddsum));
     }
 }
-class class2 extends class1
+class Child1 extends Parent1
 {
     
 }

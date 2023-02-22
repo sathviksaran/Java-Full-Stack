@@ -1,17 +1,17 @@
 public class Encapsulation {
     public static void main(String[] args) {
-        class2 c2=new class2("Sathvik","QIS",20);
+        Encapsulate c2=new Encapsulate("Sathvik","QIS",20);
         System.out.println(c2.getName());
         c2.setName("JKL");
         System.out.println(c2.getName());
     }
 }
-class class2
+class Encapsulate
 {
     private String name;
     private String college;
     private int age;
-    class2(String name,String college,int age)
+    Encapsulate(String name,String college,int age)
     {
         this.name=name;
         this.college=college;

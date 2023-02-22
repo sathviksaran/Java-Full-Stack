@@ -5,28 +5,28 @@ public class Problem43 {
         double x=sc.nextDouble();
         double y=sc.nextDouble();
         double z=sc.nextDouble();
-        B obj=new B(x,y,z,"sathvik");
+        c2 obj=new c2(x,y,z,"sathvik");
         System.out.println(obj.a);
     }
 }
-class A
+class c1
 {
     double a,b,c;
     static double cuber(double a)
     {
         return Math.pow(a, 3);
     }
-    A(double a,double b,double c)
+    c1(double a,double b,double c)
     {
         this.a=cuber(a);
         this.b=cuber(b);
         this.c=cuber(c);
     }
 }
-class B extends A
+class c2 extends c1
 {
     String ref;
-    B(double a,double b,double c,String ref)
+    c2(double a,double b,double c,String ref)
     {
         super(a,b,c);
     }
