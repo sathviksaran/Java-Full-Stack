@@ -24,5 +24,5 @@ class class2
 }
 class class3 extends class2
 {
-
+    
 }
