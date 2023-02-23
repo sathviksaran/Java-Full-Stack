@@ -1,28 +1,28 @@
 public class Problem41 {
     public static void main(String[] args) {
-        class1 a1=new class1(30);
-        class1 a2=new class1(40);
-        class1 a3=new class1(50);
-        class3 obj=new class3();
+        cons2 a1=new cons2(30);
+        cons2 a2=new cons2(40);
+        cons2 a3=new cons2(50);
+        Child3 obj=new Child3();
         obj.sum(a1,a2,a3);
     }
 }
-class class1
+class cons2
 {
     int n;
-    class1(int n)
+    cons2(int n)
     {
         this.n=n;
     }
 }
-class class2
+class method
 {
-    static void sum(class1 a1,class1 a2,class1 a3)
+    static void sum(cons2 a1,cons2 a2,cons2 a3)
     {
         System.out.println("sum = "+(a1.n+a2.n+a3.n));
     }
 }
-class class3 extends class2
+class Child3 extends method
 {
     
 }
