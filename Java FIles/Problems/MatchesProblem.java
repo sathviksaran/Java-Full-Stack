@@ -1,47 +1,134 @@
 import java.util.*;
-public class MatchesProblem {
-    public static void main(String[] args) {
+import java.util.stream.Collectors;
+public class MatchesProblem
+{
+    public static void main(String[] args) throws Exception {
         Scanner sc=new Scanner(System.in);
         System.out.print("Enter no.of teams: ");
         int n=sc.nextInt();
-        ArrayList<String>teams=new ArrayList<>();
-        ArrayList<Object>obj=new ArrayList<>();
-        System.out.println("Enter Team Names: ");
+        ArrayList<Teams> teams=new ArrayList<>();
+        System.out.println("Enter Teams: ");
         for(int i=0;i<n;i++)
         {
-            teams.add(sc.next());
-            Match m=new Match(teams.get(i));
-            obj.add(m);
+            teams.add(new Teams(sc.next()));
         }
-        new Match(obj);
+        List<Matches> matches=ScheduleMatch.Schedule(teams);
+        System.out.println(matches);
+        Result.conductMatches(matches);
+        Result.displayPointsTable(teams,matches);
     }
 }
-class Match
+class Matches
 {
-    String s;
-    Match(String s)
+    private Teams team1;
+    private Teams team2;
+    private Teams winner;
+    private Teams loser;
+    Matches(Teams team,Teams team3)
     {
-        this.s=s;
+        this.team1=team;
+        this.team2=team3;
     }
+    public Teams getTeam1()
+    {
+        return team1;
+    }
+    public Teams getTeam2()
+    {
+        return team2;
+    }
+    public Teams getWinner()
+    {
+        return winner;
+    }
+    public void setWinner(Teams winner)
+    {
+        this.winner=winner;
+    }
+    public Teams getLoser()
+    {
+        return loser;
+    }
+    public void setLoser(Teams loser)
+    {
+        this.loser=loser;
+    }
+    @Override
     public String toString()
     {
-        return s;
-    }
-    Match(ArrayList<Object> obj)
-    {
-        System.out.println("Match Schedule: ");
-        for(int i=0;i<=obj.size()-1;i++)
+        String matchDescription = team1 +" vs "+team2;
+        if(winner!=null)
         {
-            for(int j=0;j<obj.size()/2;j++)
-            {   
-                int t1=(i+j)%(obj.size()-1);
-                int t2=(obj.size()-1-j+i)%(obj.size()-1);
-                if(j==0)
-                {
-                    t2=obj.size()-1;
-                }
-                System.out.println(obj.get(t1)+" vs "+obj.get(t2));
+            String result="\n winner="+this.winner.toString()+"Loser="+this.loser.toString();
+            matchDescription+=result;
+        }
+        return matchDescription;
+    }
+}
+class ScheduleMatch
+{
+    public static List<Matches> Schedule(List<Teams> teams)
+    {
+        List<Matches> matches=new ArrayList<>();
+        for(int i=0;i<teams.size();i++)
+        {
+            for(int j=i+1;j<teams.size();j++)
+            {
+                Matches match=new Matches(teams.get(i), teams.get(j));
+                matches.add(match);
             }
         }
+        return matches;
+    }
+}
+class Result
+{
+    /**
+     * @param matches
+     */
+    public static void conductMatches(List<Matches> matches)
+    {
+        for(Matches match:matches)
+        {
+            int random=(int)((Math.random()*10)+1);
+            if(random%2==0)
+            {
+                match.setWinner(match.getTeam1());
+                match.setLoser(match.getTeam2());
+            }
+            else
+            {
+                match.setWinner(match.getTeam2());
+                match.setLoser(match.getTeam1());
+            }
+        }
+    }
+    public static void displayPointsTable(List<Teams> teams,List<Matches> matches)
+    {
+        for(Teams team:teams)
+        {
+            int wonGames=matches.stream().filter(m ->m.getWinner().equals(team)).collect(Collectors.toList()).size();
+            int lostGames=matches.stream().filter(m ->m.getLoser().equals(team)).collect(Collectors.toList()).size();
+            System.out.println(team);
+            System.out.println(wonGames);
+            System.out.println(lostGames);
+        }
+    }
+}
+class Teams
+{
+    private String name;
+    Teams(String name)
+    {
+        this.name=name;
+    }
+    @Override
+    public String toString()
+    {
+        return name;
+    }
+    public boolean equals(Object obj)
+    {
+        return this.name.equals(((Teams)obj).name);
     }
 }
