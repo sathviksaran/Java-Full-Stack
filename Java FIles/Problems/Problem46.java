@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-public class sample1 {
+public class Problem46 {
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>();
         numbers.add(3);

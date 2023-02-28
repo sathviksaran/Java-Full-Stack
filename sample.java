@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class sample {
     public static void main(String[] args) {
         ArrayList<Integer> intr=new ArrayList<>();
